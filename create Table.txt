@@ -1,0 +1,44 @@
+// criando tabela refeicao
+CREATE TABLE `reserva_ru`.`refeicao` (
+  `id_refeicao` INT NOT NULL,
+  `guarnicao` VARCHAR(45) NULL,
+  `salada` VARCHAR(45) NULL,
+  `sobremesa` VARCHAR(45) NULL,
+  `suco` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_refeicao`));
+
+
+// creando tabela cardapio
+CREATE TABLE `reserva_ru`.`cardapio` (
+  `data` DATE NOT NULL,
+  `qt_preparada` INT NULL,
+  `qt_disponivel` INT NULL,
+  PRIMARY KEY (`data`));
+
+
+
+
+
+//criando tabela pessoa
+CREATE TABLE `reserva_ru`.`pessoa` (
+  `nome` VARCHAR(45) NOT NULL,
+  `telefone` VARCHAR(45) NOT NULL,
+  `DataNasc` VARCHAR(45) NOT NULL,
+  `CPF` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`CPF`));
+
+
+
+CREATE TABLE `reserva_ru`.`aluno` (
+  `ra_aluno` INT NOT NULL,
+  PRIMARY KEY (`ra_aluno`));
+
+
+CREATE TABLE `reserva_ru`.`departamento` (
+  `nome` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`nome`));
+
+
+
+
+
