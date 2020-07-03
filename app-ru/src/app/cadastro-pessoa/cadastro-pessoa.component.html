@@ -1,41 +1,97 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
 
-   <div class="form-group"> 
+   <div class="form-group" >
+
         <label for="nome">Nome: </label><br>
-        <input type="text" class="form-control" id ="nome" placeholder= "Nome  completo" name="nome" [ngModel]>
-    
-    
+        <input type="text" class="form-control" id ="nome" 
+        placeholder= "Nome  completo" name="nome" [class.is-invalid]="nome.touched && !nome.valid"  [ngModel] required #nome="ngModel">
+         
+        <div *ngIf= "nome.touched && !nome.valid"  class= "alert alert-danger" >
+            Preencha o campo.
+        </div>
+     
     </div>
 
     <div class="form-group"> 
         <label for="telefone">Telefone: </label><br>
-        <input type="text" class="form-control" id ="telefone" placeholder= "(14) 99889-9777" name="telefone" [ngModel]>        
+        <input type="text" class="form-control" id ="telefone" 
+        [class.is-invalid]="telefone.touched && !telefone.valid" 
+        placeholder= "(14) 99889-9777" name="telefone" [ngModel] required #telefone="ngModel">
+        
+        <div *ngIf= "telefone.touched && !telefone.valid"  class= "alert alert-danger" >
+            Preencha o campo.
+        </div>
     </div>
  
 
 
     <div class="form-group"> <br>
         <label for="DataNascimento">Data de Nascimento: </label>
-        <input type="date" class="form-control" id ="DataNascimento" placeholder= "" name="DataNascimento" [ngModel]>        
+        <input type="date" class="form-control" id ="DataNascimento"
+        [class.is-invalid]="datanasc.touched && !datanasc.valid"
+         placeholder= "" name="DataNascimento" [ngModel] required #datanasc="ngModel" required>  
+         
+         <div *ngIf= "datanasc.touched && !datanasc.valid"  class= "alert alert-danger" >
+            Preencha o campo.
+        </div>
     </div>
     
    
     <div class="form-group"> 
         <label for="cpf">CPF: </label><br>
-        <input type="text" class="form-control" id ="cpf" placeholder= "111111111" name="cpf" [ngModel]>        
+        <input type="text" class="form-control" id ="cpf" 
+        [class.is-invalid]="cpf.touched && !cpf.valid"
+        placeholder= "111111111" name="cpf" [ngModel] #cpf="ngModel" required>   
+        
+        <div *ngIf="cpf.touched && !cpf.valid"  class="alert alert-danger" >
+            Preencha o campo.
+        </div>
     </div>
 
-    <div class="form-group"> 
-        <label for="endereco">Endereço: </label>
-        <input type="text" class="form-control" id ="cpf" placeholder= "Rua do Café" name="endereco" [ngModel]> 
-        <label for="cpf">CEP: </label>
-        <input type="text" class="form-control" id ="CEP" placeholder= "11111-1111" name="cep" [ngModel]>  
-        <label for="Complemento">Complemento: </label><br>
-        <input type="text" class="form-control" id ="complemento" placeholder= "" name="complemento" [ngModel]>     
+    <div class="form-row">
+
+        <div class="col-md-3 mb-3">
+            <label for="endereco">Endereço: </label>
+            <input type="text" class="form-control" id ="cpf" 
+            [class.is-invalid]="endereco.touched && !endereco.valid"
+            placeholder= "Rua do Café" name="endereco" [ngModel] #endereco="ngModel" required> 
+    
+            <div *ngIf= "endereco.touched && !endereco.valid"  class= "alert alert-danger" >
+                Preencha o campo.
+            </div>
+    
+            
+        </div>
+    
+    
+        <div class="col-md-3 mb-3">
+            <label for="cpf">CEP: </label>
+            <input type="text" class="form-control" id ="CEP" 
+            [class.is-invalid]="cep.touched && !cep.valid"
+            placeholder= "11111-1111" name="cep" [ngModel] #cep="ngModel" required>
+            <div *ngIf= "cep.touched && !cep.valid"  class= "alert alert-danger" >
+                Preencha o campo.
+            </div>  
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="Complemento">Complemento: </label><br>
+            <input type="text" class="form-control" id ="complemento"
+            [class.is-invalid]="complemento.touched && !complemento.valid"
+             placeholder= "" name="complemento" [ngModel] #complemento="ngModel" required>
+             
+             <div *ngIf= "complemento.touched && !complemento.valid"  class= "alert alert-danger" >
+                Preencha o campo.
+            </div>
+        </div>    
+             
+
+
+
     </div>
+
 
 <div>
 
-    <button type="submit" class = "btn btn-primary">Submit</button>
+    <button type="submit" class = "btn btn-primary" [disabled]= "!f.valid">Submit</button>
 </div>
 </form>
